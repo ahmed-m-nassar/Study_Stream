@@ -1,17 +1,17 @@
-package com.example.android.studystream.Courses;
+package com.example.android.studystream.CoursesHomePage;
 
-import com.example.android.studystream.Courses.Data.Services.CoursesLocalServicesImpl;
-import com.example.android.studystream.Courses.Data.Models.Course;
+import com.example.android.studystream.CoursesHomePage.Data.Services.CoursesHomePageLocalServicesImpl;
+import com.example.android.studystream.CoursesHomePage.Data.Models.Course;
 
 import java.util.ArrayList;
 
-public class CoursesPresenter implements CoursesContract.Presenter {
-   private CoursesContract.View       mView;
-   private CoursesLocalServicesImpl   mModel;
+public class CoursesHomePagePresenter implements CoursesHomePageContract.Presenter {
+   private CoursesHomePageContract.View       mView;
+   private CoursesHomePageLocalServicesImpl mModel;
 
-    public CoursesPresenter(CoursesContract.View mView) {
+    public CoursesHomePagePresenter(CoursesHomePageContract.View mView) {
         this.mView = mView;
-        mModel = new CoursesLocalServicesImpl();
+        mModel = new CoursesHomePageLocalServicesImpl();
     }
 
     @Override

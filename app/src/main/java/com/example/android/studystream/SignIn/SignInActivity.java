@@ -8,8 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.android.studystream.Base.DataBase.StudyStreamContract;
-import com.example.android.studystream.Courses.CoursesActivity;
+import com.example.android.studystream.CoursesHomePage.CoursesHomePageActivity;
 import com.example.android.studystream.R;
 
 public class SignInActivity extends AppCompatActivity implements SignInContract.View {
@@ -48,7 +47,7 @@ public class SignInActivity extends AppCompatActivity implements SignInContract.
 
     @Override
     public void navigateToCoursesScreen(String email , boolean userType) {
-        Intent intent = new Intent(this,CoursesActivity.class);
+        Intent intent = new Intent(this, CoursesHomePageActivity.class);
         intent.putExtra("Email" , email);
         intent.putExtra("UserType" , userType);
         startActivity(intent);

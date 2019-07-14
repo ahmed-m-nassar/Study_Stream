@@ -1,15 +1,15 @@
-package com.example.android.studystream.Courses;
+package com.example.android.studystream.CoursesHomePage;
 
-import com.example.android.studystream.Courses.Data.Models.Course;
+import com.example.android.studystream.CoursesHomePage.Data.Models.Course;
 
 import java.util.ArrayList;
 
-public interface CoursesContract {
+public interface CoursesHomePageContract {
     interface View {
         void fillCoursesList(ArrayList<Course> courses);
         void fillDoctorBio(String bio);
 
-        void navigateToCourseLessonsScreen();
+        void navigateToCourseDetailsScreen();
         void navigateToChangePasswordScreen();
         void navigateToCoursesStatisticsScreen();
         void navigateToNewCourseScreen();

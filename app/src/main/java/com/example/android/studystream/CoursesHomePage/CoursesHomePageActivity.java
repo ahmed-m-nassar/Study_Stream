@@ -1,4 +1,4 @@
-package com.example.android.studystream.Courses;
+package com.example.android.studystream.CoursesHomePage;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -9,17 +9,18 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.android.studystream.Courses.Adapter.CourseListAdapter;
-import com.example.android.studystream.Courses.Data.Models.Course;
+import com.example.android.studystream.CourseDetails.CourseDetailsActivity;
+import com.example.android.studystream.CoursesHomePage.Adapter.CourseListAdapter;
+import com.example.android.studystream.CoursesHomePage.Data.Models.Course;
 import com.example.android.studystream.JoinCourse.JoinCourseActivity;
 import com.example.android.studystream.NewCourse.NewCourseActivity;
 import com.example.android.studystream.R;
 
 import java.util.ArrayList;
 
-public class CoursesActivity extends AppCompatActivity implements CoursesContract.View {
+public class CoursesHomePageActivity extends AppCompatActivity implements CoursesHomePageContract.View {
 
-    private CoursesPresenter mPresenter;
+    private CoursesHomePagePresenter mPresenter;
     private String           mUserEmail;
     private boolean          mUserType;
     private ListView         mCoursesList;
@@ -51,7 +52,7 @@ public class CoursesActivity extends AppCompatActivity implements CoursesContrac
         mBioText = (TextView)findViewById(R.id.Courses_BioText_TextView);
 
         //getting presenter
-        mPresenter = new CoursesPresenter(this);
+        mPresenter = new CoursesHomePagePresenter(this);
 
         //////////////////////////////////////////////////////////////////////////////////
 
@@ -102,8 +103,8 @@ public class CoursesActivity extends AppCompatActivity implements CoursesContrac
     }
 
     @Override
-    public void navigateToCourseLessonsScreen() {
-        Intent intent = new Intent();
+    public void navigateToCourseDetailsScreen() {
+        Intent intent = new Intent(this, CourseDetailsActivity.class);
         intent.putExtra("Email" , mUserEmail);
         startActivity(intent);
     }

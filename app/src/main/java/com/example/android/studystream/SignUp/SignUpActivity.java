@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
-import com.example.android.studystream.Courses.CoursesActivity;
+import com.example.android.studystream.CoursesHomePage.CoursesHomePageActivity;
 import com.example.android.studystream.R;
 
 public class SignUpActivity extends AppCompatActivity implements SignUpContract.View {
@@ -63,7 +63,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpContract.
 
     @Override
     public void navigateToCourseScreen(String email, boolean userType) {
-        Intent intent = new Intent(this , CoursesActivity.class);
+        Intent intent = new Intent(this , CoursesHomePageActivity.class);
         intent.putExtra("Email" , email);
         intent.putExtra("UserType" , userType);
         startActivity(intent);

@@ -1,4 +1,4 @@
-package com.example.android.studystream.Courses.Data.Models;
+package com.example.android.studystream.CoursesHomePage.Data.Models;
 
 public class Course {
 

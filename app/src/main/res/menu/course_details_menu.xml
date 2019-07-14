@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+    android:id="@+id/CourseDetailsMenu_Lessons_MenuItem"
+    android:icon="@drawable/lesson"
+    android:title="Lessons" />
+
+    <item
+        android:id="@+id/CourseDetailsMenu_Announcements_MenuItem"
+        android:icon="@drawable/announcement"
+        android:title="Announcements" />
+
+    <item
+        android:id="@+id/CourseDetailsMenu_Materials_MenuItem"
+        android:icon="@drawable/material"
+        android:title="Materials" />
+
+</menu>

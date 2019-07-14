@@ -1,13 +1,11 @@
 package com.example.android.studystream.NewCourse.Data;
 
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
 
 import com.example.android.studystream.Base.DataBase.DBHelper;
 import com.example.android.studystream.Base.DataBase.MyApp;
 import com.example.android.studystream.Base.DataBase.StudyStreamContract;
-import com.example.android.studystream.Courses.Data.Models.Course;
 
 public class NewCourseLocalServicesImpl extends DBHelper implements NewCourseLocalServices {
     public NewCourseLocalServicesImpl() {

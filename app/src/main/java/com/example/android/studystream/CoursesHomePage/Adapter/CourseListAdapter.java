@@ -1,4 +1,4 @@
-package com.example.android.studystream.Courses.Adapter;
+package com.example.android.studystream.CoursesHomePage.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,9 +11,9 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.android.studystream.Courses.Data.Models.Course;
+import com.example.android.studystream.CourseDetails.CourseDetailsActivity;
+import com.example.android.studystream.CoursesHomePage.Data.Models.Course;
 import com.example.android.studystream.R;
-import com.example.android.studystream.Utils.TextUtils;
 
 import java.util.List;
 
@@ -75,7 +75,7 @@ public class CourseListAdapter extends ArrayAdapter<Course> {
         parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
+                Intent intent = new Intent(mContext , CourseDetailsActivity.class);
                 //extras
                 intent.putExtra("Email" , mUserEmail);
                 intent.putExtra("UserType" , mUserType);

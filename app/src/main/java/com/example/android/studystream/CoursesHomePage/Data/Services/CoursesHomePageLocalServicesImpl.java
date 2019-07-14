@@ -1,17 +1,17 @@
-package com.example.android.studystream.Courses.Data.Services;
+package com.example.android.studystream.CoursesHomePage.Data.Services;
 
 import android.database.Cursor;
 
 import com.example.android.studystream.Base.DataBase.DBHelper;
 import com.example.android.studystream.Base.DataBase.StudyStreamContract;
-import com.example.android.studystream.Courses.Data.Models.Course;
+import com.example.android.studystream.CoursesHomePage.Data.Models.Course;
 import com.example.android.studystream.Base.DataBase.MyApp;
 
 import java.util.ArrayList;
 
-public class CoursesLocalServicesImpl extends DBHelper implements CoursesLocalServices {
+public class CoursesHomePageLocalServicesImpl extends DBHelper implements CoursesHomePageLocalServices {
 
-    public CoursesLocalServicesImpl() {
+    public CoursesHomePageLocalServicesImpl() {
         super(MyApp.getAppContext());
     }
 
