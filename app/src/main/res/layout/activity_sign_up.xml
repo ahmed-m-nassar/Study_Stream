@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUp.SignUpActivity"
+    android:background="@color/white">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="15dp"
+                android:contentDescription="App Icon"
+                android:src="@drawable/app_icon" />
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Register As:" />
+
+                <RadioButton
+                    android:id="@+id/SignUp_Doctor_RadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:text="Professor" />
+
+                <RadioButton
+                    android:id="@+id/SignUp_Student_RadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Student" />
+
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/SignUp_Email_EditText"
+                    android:inputType="textEmailAddress"
+                    style="@style/EditTextStyle"
+                    android:layout_width="260dp"
+                    android:hint="Email"
+                    android:maxLines="1"
+                    android:textColor="@color/primaryText"/>
+
+                <LinearLayout
+                    android:layout_width="260dp"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/SignUp_FirstName_EditText"
+                        style="@style/EditTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="First Name"
+                        android:maxLines="1"
+                        android:textColor="@color/primaryText"/>
+
+                    <EditText
+                        android:id="@+id/SignUp_LastName_EditText"
+                        style="@style/EditTextStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:hint="Last Name"
+                        android:maxLines="1"
+                        android:textColor="@color/primaryText"/>
+
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/SignUp_Password_EditText"
+                    style="@style/EditTextStyle"
+                    android:layout_width="260dp"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:textColor="@color/primaryText"/>
+
+                <EditText
+                    android:id="@+id/SignUp_ConfirmPassword_EditText"
+                    style="@style/EditTextStyle"
+                    android:layout_width="260dp"
+                    android:hint="Re-enter Password"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:textColor="@color/primaryText"/>
+
+                <Button
+                    android:id="@+id/SignUp_SignUp_Button"
+                    style="@style/Button"
+                    android:text="Sign Up" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewCourse.NewCourseActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/LayoutTitle"
+            android:text="Add a Course" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/EditTextTitle"
+                android:text="Course ID:" />
+
+            <EditText
+                android:id="@+id/NewCourse_CourseCode_EditText"
+                style="@style/EditTextStyle"
+                android:hint="Ex. 201"
+                android:inputType="number" />
+
+            <TextView
+                style="@style/EditTextTitle"
+                android:text="Course Title:" />
+
+            <EditText
+                android:id="@+id/NewCourse_CourseTitle_EditText"
+                style="@style/EditTextStyle"
+                android:hint="Ex. Database Systems"
+                android:inputType="textPersonName" />
+
+            <TextView
+                style="@style/EditTextTitle"
+                android:text="Password:" />
+
+            <EditText
+                android:id="@+id/NewCourse_CoursePassword_EditText"
+                style="@style/EditTextStyle"
+                android:hint="Required to join the course."
+                android:inputType="textPersonName" />
+
+            <TextView
+                style="@style/EditTextTitle"
+                android:text="Description:" />
+
+            <EditText
+                android:id="@+id/NewCourse_CourseDescription_EditText"
+                style="@style/EditTextStyle"
+                android:hint="Give a hint about the course. (Optional)"
+                android:inputType="textMultiLine"
+                android:maxLines="5"
+                android:minLines="3" />
+
+            <Button
+                android:id="@+id/NewCourse_AddCourse_Button"
+                style="@style/Button"
+                android:text="ADD" />
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

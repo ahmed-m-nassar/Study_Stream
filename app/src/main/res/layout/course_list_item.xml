@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/CourseListItem_CourseParentView_Layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/edittext_roundedcorners"
+    android:padding="10dp">
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/course"
+        android:layout_gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp">
+
+        <TextView
+            android:id="@+id/CourseListItem_CourseTitle_TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Course Title"
+            android:textStyle="bold"
+            android:textSize="24sp"/>
+
+
+        <TextView
+            android:id="@+id/CourseListItem_CourseProfessor_TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Professor"
+            android:textStyle="italic"
+            android:layout_marginLeft="5dp"/>
+        <TextView
+            android:id="@+id/CourseListItem_CourseCode_TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Course Code"
+            android:textStyle="italic"
+            android:layout_marginLeft="5dp"/>
+
+        <TextView
+            android:id="@+id/CourseListItem_CoursePassword_TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:textStyle="italic"
+            android:layout_marginLeft="5dp"/>
+
+        <TextView
+            android:id="@+id/CourseListItem_CourseDescription_TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Course Disc"
+            android:textColor="@color/middlegrey"
+            android:layout_marginLeft="5dp" />
+
+    </LinearLayout>
+</LinearLayout>
