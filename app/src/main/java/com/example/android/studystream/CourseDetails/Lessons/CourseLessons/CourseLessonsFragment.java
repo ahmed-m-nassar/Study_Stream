@@ -66,6 +66,8 @@ public class CourseLessonsFragment extends Fragment implements CourseLessonsCont
             }
         });
 
+        adjustLayout();
+
         //getting lessons list
         mPresenter.getLessonList(mCourseCode);
     }
@@ -101,5 +103,14 @@ public class CourseLessonsFragment extends Fragment implements CourseLessonsCont
 
     }
 
+    //region private functions
+    void adjustLayout() {
+
+        if(mUserType == false) {
+            mAddLesson.setVisibility(View.GONE);
+        }
+    }
+
+    //endregion
 
 }

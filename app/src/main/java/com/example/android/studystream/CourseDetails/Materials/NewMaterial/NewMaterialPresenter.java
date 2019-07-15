@@ -32,7 +32,7 @@ public class NewMaterialPresenter implements NewMaterialContract.Presenter {
         }
         ////////////////////////////////////////////////////////
 
-        //adding announcement
+        //adding material
         ////////////////////////////////////////////////////
 
         //getting new ID

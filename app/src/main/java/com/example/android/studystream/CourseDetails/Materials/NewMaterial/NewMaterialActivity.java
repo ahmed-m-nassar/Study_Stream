@@ -23,6 +23,7 @@ public class NewMaterialActivity extends AppCompatActivity implements NewMateria
     private int                      mCourseCode;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,4 +69,6 @@ public class NewMaterialActivity extends AppCompatActivity implements NewMateria
     public void finishScreen() {
         finish();
     }
+
+
 }

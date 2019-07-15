@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.android.studystream.CourseDetails.Materials.CourseMaterials.Data.Models.Material;
+import com.example.android.studystream.CourseDetails.Materials.EditMaterial.EditMaterialActivity;
 import com.example.android.studystream.R;
 
 import java.util.List;
@@ -44,13 +45,24 @@ public class MaterialListAdapter extends ArrayAdapter<Material> {
         materialContent.setText(Item.getmContent().toString());
 
         //setting click listener
-        LinearLayout materialParent = (LinearLayout)ListItemView.findViewById(R.id.MaterialListItem_Parent_Layout);
-        materialParent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-            }
-        });
+        if(mUserType == true) { //if the user is a doctor he can edit the material
+            LinearLayout materialParent = (LinearLayout)ListItemView.findViewById(R.id.MaterialListItem_Parent_Layout);
+            materialParent.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Intent intent = new Intent(mContext , EditMaterialActivity.class);
+                    intent.putExtra("CourseCode" , Item.getmCourseCode() );
+                    intent.putExtra("MaterialNumber" , Item.getmMaterialNum());
+                    intent.putExtra("MaterialTitle" , Item.getmTitle());
+                    intent.putExtra("MaterialContent" , Item.getmContent());
+                    intent.putExtra("Email" , mUserEmail);
+
+                    mContext.startActivity(intent);
+                }
+            });
+
+        }
 
 
         return ListItemView;

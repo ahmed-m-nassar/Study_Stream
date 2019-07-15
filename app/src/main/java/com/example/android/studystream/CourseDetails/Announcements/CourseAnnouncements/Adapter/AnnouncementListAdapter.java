@@ -12,6 +12,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.android.studystream.CourseDetails.Announcements.CourseAnnouncements.Data.Models.Announcement;
+import com.example.android.studystream.CourseDetails.Announcements.EditAnnouncement.EditAnnouncementActivity;
+import com.example.android.studystream.CourseDetails.Materials.EditMaterial.EditMaterialActivity;
 import com.example.android.studystream.R;
 
 import java.util.List;
@@ -44,14 +46,24 @@ public class AnnouncementListAdapter extends ArrayAdapter<Announcement> {
         announcementContent.setText(Item.getmContent().toString());
 
         //setting click listener
-        LinearLayout announcementParent = (LinearLayout)ListItemView.findViewById(R.id.AnnouncementListItem_Parent_Layout);
-        announcementParent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-            }
-        });
+       if(mUserType == true) { //if the user is a doctor he can edit the announcement
+           LinearLayout announcementParent = (LinearLayout)ListItemView.findViewById(R.id.AnnouncementListItem_Parent_Layout);
+           announcementParent.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View v) {
+                   Intent intent = new Intent(mContext , EditAnnouncementActivity.class);
+                   intent.putExtra("CourseCode" , Item.getmCourseCode() );
+                   intent.putExtra("AnnouncementNumber" , Item.getmAnnouncementNum());
+                   intent.putExtra("AnnouncementTitle" , Item.getmTitle());
+                   intent.putExtra("AnnouncementContent" , Item.getmContent());
+                   intent.putExtra("Email" , mUserEmail);
 
+                   mContext.startActivity(intent);
+               }
+           });
+
+
+       }
 
         return ListItemView;
     }

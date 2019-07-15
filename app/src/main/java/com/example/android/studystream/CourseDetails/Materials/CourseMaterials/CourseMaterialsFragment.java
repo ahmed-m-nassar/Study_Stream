@@ -66,6 +66,8 @@ public class CourseMaterialsFragment extends Fragment implements CourseMaterials
         });
         ////////////////////////////////////////////////////////
 
+        adjustLayout();
+
         mPresenter.getMaterialsList(mCourseCode);
 
     }
@@ -100,4 +102,15 @@ public class CourseMaterialsFragment extends Fragment implements CourseMaterials
         super.onResume();
         mPresenter.getMaterialsList(mCourseCode);
     }
+
+    //region private functions
+    void adjustLayout() {
+
+        if(mUserType == false) {
+            mAddMaterial.setVisibility(View.GONE);
+        }
+    }
+
+    //endregion
+
 }
