@@ -10,7 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NewAnnouncement.NewAnnouncementActivity"></activity>
+        <activity android:name=".CourseDetails.Lessons.NewLesson.NewLessonActivity"></activity>
+        <activity android:name=".CourseDetails.Materials.NewMaterial.NewMaterialActivity" />
+        <activity android:name=".CourseDetails.Announcements.NewAnnouncement.NewAnnouncementActivity" />
         <activity android:name=".CourseDetails.CourseDetailsActivity" />
         <activity android:name=".JoinCourse.JoinCourseActivity" />
         <activity

@@ -8,9 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.example.android.studystream.CourseDetails.CourseAnnouncements.CourseAnnouncementsFragment;
-import com.example.android.studystream.CourseDetails.CourseLessons.CourseLessonsFragment;
-import com.example.android.studystream.CourseDetails.CourseMaterials.CourseMaterialsFragment;
+import com.example.android.studystream.CourseDetails.Announcements.CourseAnnouncements.CourseAnnouncementsFragment;
+import com.example.android.studystream.CourseDetails.Lessons.CourseLessons.CourseLessonsFragment;
+import com.example.android.studystream.CourseDetails.Materials.CourseMaterials.CourseMaterialsFragment;
 import com.example.android.studystream.R;
 
 public class CourseDetailsActivity extends AppCompatActivity {

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CourseDetails.Materials.NewMaterial.NewMaterialActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:id="@+id/NewMaterial_Parent_Layout"
+        >
+
+        <TextView
+            style="@style/LayoutTitle"
+            android:text="Add Material" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text"
+                style="@style/EditTextTitle"
+                android:text="Title:" />
+
+            <EditText
+                android:id="@+id/NewMaterial_Title_EditText"
+                style="@style/EditTextStyle"
+                android:hint="Material's title."
+                android:inputType="textPersonName"
+                android:maxLines="1" />
+
+            <TextView
+                style="@style/EditTextTitle"
+                android:text="Content:" />
+
+            <EditText
+                android:id="@+id/NewMaterial_Content_EditText"
+                style="@style/EditTextStyle"
+                android:hint="Material's link."
+                android:inputType="text"
+                android:maxLines="1" />
+
+            <Button
+                android:id="@+id/NewMaterial_AddMaterial_Button"
+                style="@style/Button"
+                android:text="Add" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
