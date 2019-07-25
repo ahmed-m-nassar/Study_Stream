@@ -22,9 +22,8 @@ public class CourseStatisticsAdapter extends ArrayAdapter<Statistics> {
 
     private String  mUserEmail;
     private Context mContext;
-    public CourseStatisticsAdapter(@NonNull Context context, List<Statistics> statistics , String email ) {
+    public CourseStatisticsAdapter(@NonNull Context context, List<Statistics> statistics  ) {
         super(context, 0,statistics);
-        mUserEmail = email;
         mContext = context;
     }
 
@@ -49,12 +48,12 @@ public class CourseStatisticsAdapter extends ArrayAdapter<Statistics> {
         ///////////////////////////////////////////////////////////////////////////////////////////////
 
         //setting data
-        courseTitle.setText(Item.getmCourseTitle());
-        lessonsNumber.setText(Item.getmLessonsNum());
-        materialsNumber.setText(Item.getmMaterialsNum());
-        announcementsNumber.setText(Item.getmAnnouncementsNum());
-        questionsNumber.setText(Item.getmQuestionsNum());
-        answersNumber.setText(Item.getmAnswersNum());
+        courseTitle.setText(String.valueOf(Item.getmCourseTitle()));
+        lessonsNumber.setText(String.valueOf(Item.getmLessonsNum()));
+        materialsNumber.setText(String.valueOf(Item.getmMaterialsNum()));
+        announcementsNumber.setText(String.valueOf(Item.getmAnnouncementsNum()));
+        questionsNumber.setText(String.valueOf(Item.getmQuestionsNum()));
+        answersNumber.setText(String.valueOf(Item.getmAnswersNum()));
         /////////////////////////////////////////////////////////////////
 
         return ListItemView;

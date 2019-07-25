@@ -6,10 +6,29 @@ import android.database.Cursor;
 import com.example.android.studystream.Base.DataBase.DBHelper;
 import com.example.android.studystream.Base.DataBase.MyApp;
 import com.example.android.studystream.Base.DataBase.StudyStreamContract;
+import com.example.android.studystream.Questions.Models.Question;
+
+import java.util.ArrayList;
 
 public class CourseStatisticsLocalServicesImpl extends DBHelper implements CourseStatisticsLocalServices {
     public CourseStatisticsLocalServicesImpl() {
         super(MyApp.getAppContext());
+    }
+
+    @Override
+    public ArrayList<Integer> getCoursesIdByDoctor(String email) {
+        String query= "Select * from " + StudyStreamContract.Course.Table_Name +
+                " where "+ StudyStreamContract.Course.Column_Doc_ID+" =? " ;
+
+        String[] Argument = {email};
+        Cursor cursor = Select(query,Argument);
+
+        ArrayList<Integer> ids = new ArrayList<>();
+        for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+           ids.add(cursor.getInt(0));
+        }
+        return ids;
+
     }
 
     @Override

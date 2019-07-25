@@ -1,7 +1,7 @@
 package com.example.android.studystream.CoursesStatistics.Model;
 
 public class Statistics {
-    private String mCourseTitle;
+    private int mCourseCode;
     private int mLessonsNum;
     private int mMaterialsNum;
     private int mAnnouncementsNum;
@@ -9,8 +9,8 @@ public class Statistics {
     private int mAnswersNum;
     private int mStudentsNum;
 
-    public Statistics(String mCourseTitle, int mLessonsNum, int mMaterialsNum, int mAnnouncementsNum, int mQuestionsNum, int mAnswersNum, int mStudentsNum) {
-        this.mCourseTitle = mCourseTitle;
+    public Statistics(int mCourseCode, int mLessonsNum, int mMaterialsNum, int mAnnouncementsNum, int mQuestionsNum, int mAnswersNum, int mStudentsNum) {
+        this.mCourseCode = mCourseCode;
         this.mLessonsNum = mLessonsNum;
         this.mMaterialsNum = mMaterialsNum;
         this.mAnnouncementsNum = mAnnouncementsNum;
@@ -19,8 +19,8 @@ public class Statistics {
         this.mStudentsNum = mStudentsNum;
     }
 
-    public String getmCourseTitle() {
-        return mCourseTitle;
+    public int getmCourseTitle() {
+        return mCourseCode;
     }
 
     public int getmLessonsNum() {
