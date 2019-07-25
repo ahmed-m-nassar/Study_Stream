@@ -11,7 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.android.studystream.CourseDetails.Materials.CourseMaterials.Data.Models.Material;
+import com.example.android.studystream.CourseDetails.Materials.Models.Material;
 import com.example.android.studystream.CourseDetails.Materials.EditMaterial.EditMaterialActivity;
 import com.example.android.studystream.R;
 

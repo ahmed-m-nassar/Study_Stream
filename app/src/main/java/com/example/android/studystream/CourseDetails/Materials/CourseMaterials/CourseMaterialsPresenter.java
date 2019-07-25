@@ -1,7 +1,7 @@
 package com.example.android.studystream.CourseDetails.Materials.CourseMaterials;
 
 import com.example.android.studystream.CourseDetails.Materials.CourseMaterials.Data.CourseMaterialsLocalServicesImpl;
-import com.example.android.studystream.CourseDetails.Materials.CourseMaterials.Data.Models.Material;
+import com.example.android.studystream.CourseDetails.Materials.Models.Material;
 
 import java.util.ArrayList;
 

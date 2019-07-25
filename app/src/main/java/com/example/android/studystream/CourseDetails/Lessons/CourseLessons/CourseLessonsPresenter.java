@@ -1,9 +1,7 @@
 package com.example.android.studystream.CourseDetails.Lessons.CourseLessons;
 
-import android.content.Intent;
-
 import com.example.android.studystream.CourseDetails.Lessons.CourseLessons.Data.CourseLessonsLocalServicesImpl;
-import com.example.android.studystream.CourseDetails.Lessons.CourseLessons.Data.Models.Lesson;
+import com.example.android.studystream.CourseDetails.Lessons.Models.Lesson;
 
 import java.util.ArrayList;
 

@@ -13,7 +13,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.android.studystream.CourseDetails.Materials.CourseMaterials.Adapter.MaterialListAdapter;
-import com.example.android.studystream.CourseDetails.Materials.CourseMaterials.Data.Models.Material;
+import com.example.android.studystream.CourseDetails.Materials.Models.Material;
 import com.example.android.studystream.CourseDetails.Materials.NewMaterial.NewMaterialActivity;
 import com.example.android.studystream.R;
 

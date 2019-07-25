@@ -1,4 +1,4 @@
-package com.example.android.studystream.CourseDetails.Materials.CourseMaterials.Data.Models;
+package com.example.android.studystream.CourseDetails.Materials.Models;
 
 public class Material {
     private String mTitle;

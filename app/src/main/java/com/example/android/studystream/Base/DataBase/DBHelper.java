@@ -112,7 +112,6 @@ public class DBHelper extends SQLiteOpenHelper {
                 + Answers.Column_Answer_Num + " INTEGER NOT NULL ,"
                 + Answers.Column_Lesson_Num + " INTEGER NOT NULL ,"
                 + Answers.Column_User_ID + " TEXT NOT NULL,"
-                + Answers.Column_Title + "  TEXT NOT NULL ,"
                 + Answers.Column_Content + " TEXT NOT NULL ,"
                 + Answers.Column_Date + " DATETIME,"
                 + "PRIMARY KEY (" +Answers.Column_Course_Code +","+ Answers.Column_Question_Num + "," + Answers.Column_Answer_Num + "," + Answers.Column_Lesson_Num +  ")"
@@ -121,6 +120,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 +" ON DELETE CASCADE ON UPDATE CASCADE ,"
                 + "FOREIGN KEY (" + Answers.Column_User_ID + ") REFERENCES " + UserEntry.Table_Name
                 +  ")";
+        db.execSQL(SQL_CREATE_Answers);
+
         final String SQL_CREATE_STUD_COURSE = "CREATE TABLE " + STUD_COURSE.Table_Name + "( "
                 + STUD_COURSE.Column_Course_Code + " INTEGER NOT NULL, "
                 + STUD_COURSE.Column_Stud_ID + " TEXT NOT NULL ,"

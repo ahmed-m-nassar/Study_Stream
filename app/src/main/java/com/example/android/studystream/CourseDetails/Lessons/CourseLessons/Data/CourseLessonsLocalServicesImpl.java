@@ -5,7 +5,7 @@ import android.database.Cursor;
 import com.example.android.studystream.Base.DataBase.DBHelper;
 import com.example.android.studystream.Base.DataBase.MyApp;
 import com.example.android.studystream.Base.DataBase.StudyStreamContract;
-import com.example.android.studystream.CourseDetails.Lessons.CourseLessons.Data.Models.Lesson;
+import com.example.android.studystream.CourseDetails.Lessons.Models.Lesson;
 
 import java.util.ArrayList;
 

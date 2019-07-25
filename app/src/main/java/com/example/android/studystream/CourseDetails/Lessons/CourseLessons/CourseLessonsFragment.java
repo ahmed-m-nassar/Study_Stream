@@ -12,11 +12,11 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.android.studystream.CourseDetails.Announcements.CourseAnnouncements.Data.Models.Announcement;
+import com.example.android.studystream.CourseDetails.Announcements.Models.Announcement;
 import com.example.android.studystream.CourseDetails.Lessons.CourseLessons.Adapter.LessonListAdapter;
-import com.example.android.studystream.CourseDetails.Lessons.CourseLessons.Data.Models.Lesson;
+import com.example.android.studystream.CourseDetails.Lessons.Models.Lesson;
 import com.example.android.studystream.CourseDetails.Lessons.NewLesson.NewLessonActivity;
-import com.example.android.studystream.CourseDetails.Lessons.NewLesson.NewLessonContract;
+import com.example.android.studystream.Questions.LessonQuestions.LessonQuestionsActivity;
 import com.example.android.studystream.R;
 
 import java.util.ArrayList;

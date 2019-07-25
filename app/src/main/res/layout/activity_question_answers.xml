@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Answers.QuestionAnswers.QuestionAnswersActivity"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/QuestionAnswers_AddAnswer_Button"
+        style="@style/ListViewButton"
+        android:text="Add a new Answer" />
+
+    <ListView
+        android:id="@+id/QuestionAnswers_Answers_ListView"
+        style="@style/ListViewStyle" />
+
+</LinearLayout>

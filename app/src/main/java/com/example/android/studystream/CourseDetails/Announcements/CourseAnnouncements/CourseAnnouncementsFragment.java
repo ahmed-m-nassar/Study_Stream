@@ -13,7 +13,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.android.studystream.CourseDetails.Announcements.CourseAnnouncements.Adapter.AnnouncementListAdapter;
-import com.example.android.studystream.CourseDetails.Announcements.CourseAnnouncements.Data.Models.Announcement;
+import com.example.android.studystream.CourseDetails.Announcements.Models.Announcement;
 import com.example.android.studystream.CourseDetails.Announcements.NewAnnouncement.NewAnnouncementActivity;
 import com.example.android.studystream.R;
 

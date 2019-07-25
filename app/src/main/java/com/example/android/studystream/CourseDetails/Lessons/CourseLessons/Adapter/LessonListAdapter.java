@@ -11,8 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.android.studystream.CourseDetails.Lessons.CourseLessons.Data.Models.Lesson;
-import com.example.android.studystream.CourseDetails.Materials.CourseMaterials.Data.Models.Material;
+import com.example.android.studystream.CourseDetails.Lessons.Models.Lesson;
+import com.example.android.studystream.Questions.LessonQuestions.LessonQuestionsActivity;
 import com.example.android.studystream.R;
 
 import java.util.List;
@@ -21,11 +21,13 @@ public class LessonListAdapter extends ArrayAdapter<Lesson> {
     private boolean mUserType;
     private String  mUserEmail;
     private Context mContext;
-    public LessonListAdapter(@NonNull Context context, List<Lesson> lessons , String email , boolean userType , int CourseCode) {
+    private int     mCourseCode;
+    public LessonListAdapter(@NonNull Context context, List<Lesson> lessons , String email , boolean userType , int courseCode) {
         super(context, 0,lessons);
         mUserType = userType;
         mUserEmail = email;
         mContext = context;
+        mCourseCode = courseCode;
     }
 
     @NonNull
@@ -47,7 +49,12 @@ public class LessonListAdapter extends ArrayAdapter<Lesson> {
         lessonParent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
+                Intent intent = new Intent(getContext() , LessonQuestionsActivity.class);
+                intent.putExtra("CourseCode" , mCourseCode);
+                intent.putExtra("LessonNumber" , Item.GetLessonNum());
+                intent.putExtra("Email" , mUserEmail);
+                intent.putExtra("UserType" , mUserType);
+                mContext.startActivity(intent);
             }
         });
 

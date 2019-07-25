@@ -95,6 +95,7 @@ public class CoursesHomePageActivity extends AppCompatActivity implements Course
     public void fillCoursesList(ArrayList<Course> courses) {
         CourseListAdapter adapter = new CourseListAdapter(this,courses,mUserEmail,mUserType);
         mCoursesList.setAdapter(adapter);
+
     }
 
     @Override

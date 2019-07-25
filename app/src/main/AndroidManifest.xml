@@ -9,8 +9,16 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:hardwareAccelerated="false"
+        android:largeHeap="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CourseDetails.Materials.EditMaterial.EditMaterialActivity"></activity>
+        <activity android:name=".CoursesStatistics.CourseStatisticsActivity"></activity>
+        <activity android:name=".EditBio.EditBioActivity" />
+        <activity android:name=".Answers.AddAnswer.AddAnswerActivity" />
+        <activity android:name=".Questions.AddQuestion.AddQuestionActivity" />
+        <activity android:name=".Answers.QuestionAnswers.QuestionAnswersActivity" />
+        <activity android:name=".Questions.LessonQuestions.LessonQuestionsActivity" />
+        <activity android:name=".CourseDetails.Materials.EditMaterial.EditMaterialActivity" />
         <activity android:name=".CourseDetails.Announcements.EditAnnouncement.EditAnnouncementActivity" />
         <activity android:name=".CourseDetails.Lessons.NewLesson.NewLessonActivity" />
         <activity android:name=".CourseDetails.Materials.NewMaterial.NewMaterialActivity" />

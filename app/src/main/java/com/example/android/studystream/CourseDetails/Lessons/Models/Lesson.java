@@ -1,4 +1,4 @@
-package com.example.android.studystream.CourseDetails.Lessons.CourseLessons.Data.Models;
+package com.example.android.studystream.CourseDetails.Lessons.Models;
 
 public class Lesson {
     private String mTitle;

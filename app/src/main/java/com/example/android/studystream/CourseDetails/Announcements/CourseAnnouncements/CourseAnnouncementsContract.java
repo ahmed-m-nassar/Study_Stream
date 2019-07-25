@@ -1,6 +1,6 @@
 package com.example.android.studystream.CourseDetails.Announcements.CourseAnnouncements;
 
-import com.example.android.studystream.CourseDetails.Announcements.CourseAnnouncements.Data.Models.Announcement;
+import com.example.android.studystream.CourseDetails.Announcements.Models.Announcement;
 
 import java.util.ArrayList;
 
