@@ -56,7 +56,8 @@ public class SignUpPesenter implements SignUpContract.Presenter {
 
         model.insertNewUser(email , firstName , lastName , password , userType);
 
-        mView.navigateToCourseScreen(email , userType);
+        mView.showMessage("You have signed up successfully");
+        mView.finishScreen();
 
     }
 }

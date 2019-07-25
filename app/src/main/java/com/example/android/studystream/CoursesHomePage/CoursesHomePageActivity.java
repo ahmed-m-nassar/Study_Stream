@@ -14,6 +14,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.android.studystream.ChangePassword.ChangePasswordActivity;
 import com.example.android.studystream.CourseDetails.CourseDetailsActivity;
 import com.example.android.studystream.CoursesHomePage.Adapter.CourseListAdapter;
 import com.example.android.studystream.CoursesHomePage.Data.Models.Course;
@@ -85,6 +86,13 @@ public class CoursesHomePageActivity extends AppCompatActivity implements Course
             }
         });
 
+        //EditBio click listener
+        mEditBio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPresenter.editBioButtonPressed();
+            }
+        });
 
         //////////////////////////////////////////////////
         //toolbar settings
@@ -173,7 +181,7 @@ public class CoursesHomePageActivity extends AppCompatActivity implements Course
 
     @Override
     public void navigateToChangePasswordScreen() {
-        Intent intent = new Intent();
+        Intent intent = new Intent(this , ChangePasswordActivity.class);
         intent.putExtra("Email" , mUserEmail);
         startActivity(intent);
     }

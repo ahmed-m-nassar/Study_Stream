@@ -30,6 +30,7 @@ public interface CoursesHomePageContract {
         void courseStatisticsItemClicked();
         void changePasswordItemClicked();
 
+        void editBioButtonPressed();
         void backButtonPressed(long lastBackButtonPressingTime);
 
     }

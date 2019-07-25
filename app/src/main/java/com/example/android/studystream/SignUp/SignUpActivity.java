@@ -69,4 +69,9 @@ public class SignUpActivity extends AppCompatActivity implements SignUpContract.
         startActivity(intent);
         finish();
     }
+
+    @Override
+    public void finishScreen() {
+        finish();
+    }
 }

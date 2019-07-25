@@ -57,4 +57,9 @@ public class CoursesHomePagePresenter implements CoursesHomePageContract.Present
             mView.exitApplication();
         else mView.showMessage("Press back again to exit!");
     }
+
+    @Override
+    public void editBioButtonPressed() {
+        mView.navigateToChangeBioScreen();
+    }
 }

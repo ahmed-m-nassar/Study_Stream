@@ -55,17 +55,14 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     @Override
     public void navigateToSignUpScreen() {
         Intent intent = new Intent(this,SignUpActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
-        finish();
     }
 
     @Override
     public void navigateToSignInScreen() {
         Intent intent = new Intent(this,SignInActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
-        finish();
+
     }
 
     @Override
