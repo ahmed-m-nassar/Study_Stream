@@ -7,6 +7,10 @@
     android:orientation="vertical"
     tools:context=".CoursesHomePage.CoursesHomePageActivity"
     >
+    <include
+        android:id="@+id/Courses_ToolBar"
+        layout="@layout/tool_bar"
+        />
 
     <LinearLayout
         android:id="@+id/Courses_Bio_Parent"

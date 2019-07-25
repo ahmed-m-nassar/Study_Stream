@@ -26,7 +26,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 + "( " + UserEntry.Column_ID + " TEXT PRIMARY KEY , "
                 + UserEntry.Column_Password + " INTEGER NOT NULL, "
                 + UserEntry.Column_FirstName + " TEXT NOT NULL, "
-                + UserEntry.Column_SecondName + " TEXT NOT NULL "
+                + UserEntry.Column_SecondName + " TEXT NOT NULL, "
+                + UserEntry.Column_IsLogged + " INTEGER NOT NULL "
                 + ")";
         db.execSQL(SQL_CREATE_USER_ENTRY);
 

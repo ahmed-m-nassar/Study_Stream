@@ -12,6 +12,7 @@ public final class StudyStreamContract {
         public static final String Column_Password = "Password";
         public static final String Column_FirstName = "FirstName";
         public static final String Column_SecondName = "SecondName";
+        public static final String Column_IsLogged = "IsLogged";
 
     }
 

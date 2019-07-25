@@ -1,5 +1,6 @@
 package com.example.android.studystream.CoursesHomePage.Data.Services;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 
 import com.example.android.studystream.Base.DataBase.DBHelper;
@@ -81,5 +82,16 @@ public class CoursesHomePageLocalServicesImpl extends DBHelper implements Course
         cursor.close();
 
         return courses;
+    }
+
+    @Override
+    public void logOutUser(String email) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(StudyStreamContract.UserEntry.Column_IsLogged,0);
+
+        String whereclause = StudyStreamContract.UserEntry.Column_ID + " =? ";
+        String[] arguments = {email};
+
+        update(StudyStreamContract.UserEntry.Table_Name,contentValues,arguments,whereclause);
     }
 }

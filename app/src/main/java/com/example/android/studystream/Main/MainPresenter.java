@@ -1,20 +1,35 @@
 package com.example.android.studystream.Main;
 
+import com.example.android.studystream.Main.Data.MainLocalServicesImpl;
+
 public class MainPresenter implements MainContract.Presenter {
 
-    MainContract.View view ;
+    private MainContract.View     mView ;
+    private MainLocalServicesImpl mModel;
 
     public MainPresenter(MainContract.View view) {
-        this.view = view;
+        this.mView = view;
+        mModel = new MainLocalServicesImpl();
     }
 
     @Override
     public void SignUpButtonClicked() {
-        view.navigateToSignUpScreen();
+        mView.navigateToSignUpScreen();
     }
 
     @Override
     public void SignInButtonClicked() {
-        view.navigateToSignInScreen();
+        mView.navigateToSignInScreen();
+    }
+
+    @Override
+    public void checkLoggedInUser() {
+        String email = mModel.checkLoggedInUser();
+
+        if(email != null) {
+            boolean userType = mModel.checkUserType(email);
+            mView.navigateToCoursesScreen(email , userType);
+            mView.finishScreen();
+        }
     }
 }

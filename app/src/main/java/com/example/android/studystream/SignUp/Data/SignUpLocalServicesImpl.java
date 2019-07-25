@@ -38,6 +38,7 @@ public class SignUpLocalServicesImpl extends DBHelper implements SignUpLocalServ
         content.put(StudyStreamContract.UserEntry.Column_Password,password);
         content.put(StudyStreamContract.UserEntry.Column_FirstName,firstName);
         content.put(StudyStreamContract.UserEntry.Column_SecondName,lastName);
+        content.put(StudyStreamContract.UserEntry.Column_IsLogged,1);
 
         insert(StudyStreamContract.UserEntry.Table_Name,content);
 

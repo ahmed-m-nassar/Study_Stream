@@ -37,11 +37,13 @@ public class SignInPresenter implements SignInContract.Presenter {
             view.showMessage("Incorrect email or password");
             return;
         }
+
         ///////////////////////////////////////////////////////////////////////////
 
 
         //getting user type
         boolean userType = model.checkDoctorUser(email);
+        model.setLoggedInUser(email);
         //moving to a new screen
         view.navigateToCoursesScreen(email,userType);
 

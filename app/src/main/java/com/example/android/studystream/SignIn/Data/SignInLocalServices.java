@@ -10,4 +10,6 @@ public interface SignInLocalServices {
 
     Cursor  getUserData (String email);
 
+    void    setLoggedInUser(String email);
+
 }

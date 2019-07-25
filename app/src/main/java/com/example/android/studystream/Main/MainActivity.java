@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.android.studystream.CoursesHomePage.CoursesHomePageActivity;
 import com.example.android.studystream.R;
 import com.example.android.studystream.SignIn.SignInActivity;
 import com.example.android.studystream.SignUp.SignUpActivity;
@@ -46,17 +47,37 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             }
         });
         /////////////////////////////////////////////////////////
+
+        //checking if a user is already logged in
+        mPresenter.checkLoggedInUser();
     }
 
     @Override
     public void navigateToSignUpScreen() {
         Intent intent = new Intent(this,SignUpActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
+        finish();
     }
 
     @Override
     public void navigateToSignInScreen() {
         Intent intent = new Intent(this,SignInActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void navigateToCoursesScreen(String email, boolean userType) {
+        Intent intent = new Intent(this, CoursesHomePageActivity.class);
+        intent.putExtra("Email" , email);
+        intent.putExtra("UserType" , userType);
+        startActivity(intent);
+    }
+
+    @Override
+    public void finishScreen() {
+        finish();
     }
 }

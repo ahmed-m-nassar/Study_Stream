@@ -1,5 +1,6 @@
 package com.example.android.studystream.SignIn.Data;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 
 import com.example.android.studystream.Base.DataBase.BaseLocalServices;
@@ -65,5 +66,16 @@ public class SignInLocalServicesImpl extends BaseLocalServices implements SignIn
 
         cursor.moveToFirst();
         return cursor;
+    }
+
+    @Override
+    public void setLoggedInUser(String email) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(StudyStreamContract.UserEntry.Column_IsLogged,1);
+
+        String whereclause = StudyStreamContract.UserEntry.Column_ID + " =? ";
+        String[] arguments = {email};
+
+        update(StudyStreamContract.UserEntry.Table_Name,contentValues,arguments,whereclause);
     }
 }

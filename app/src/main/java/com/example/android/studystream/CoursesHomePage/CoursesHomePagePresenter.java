@@ -1,5 +1,7 @@
 package com.example.android.studystream.CoursesHomePage;
 
+import android.widget.Toast;
+
 import com.example.android.studystream.CoursesHomePage.Data.Services.CoursesHomePageLocalServicesImpl;
 import com.example.android.studystream.CoursesHomePage.Data.Models.Course;
 
@@ -30,5 +32,29 @@ public class CoursesHomePagePresenter implements CoursesHomePageContract.Present
         //getting courses
         ArrayList<Course> courses = mModel.getStudentCourses(email);
         mView.fillCoursesList(courses);
+    }
+
+    @Override
+    public void logoutItemClicked(String email) {
+        mModel.logOutUser(email);
+        mView.navigateToMainScreen();
+        mView.finishScreen();
+    }
+
+    @Override
+    public void courseStatisticsItemClicked() {
+        mView.navigateToCoursesStatisticsScreen();
+    }
+
+    @Override
+    public void changePasswordItemClicked() {
+        mView.navigateToChangePasswordScreen();
+    }
+
+    @Override
+    public void backButtonPressed(long lastBackButtonPressingTime) {
+        if (lastBackButtonPressingTime + 2000 > System.currentTimeMillis())
+            mView.exitApplication();
+        else mView.showMessage("Press back again to exit!");
     }
 }

@@ -10,5 +10,6 @@ public interface CoursesHomePageLocalServices {
     ArrayList<Course> getDoctorCourses(String email);
     ArrayList<Course> getStudentCourses(String email);
 
+    void logOutUser(String email);
 
 }

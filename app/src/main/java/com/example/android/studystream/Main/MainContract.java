@@ -12,6 +12,10 @@ public interface MainContract {
          * this method navigates to sign in screen
          */
         void navigateToSignInScreen();
+
+        void navigateToCoursesScreen(String email , boolean userType);
+
+        void finishScreen();
     }
 
     interface Presenter {
@@ -25,5 +29,9 @@ public interface MainContract {
          * this method navigates to sign in screen when sign in button is clicked
          */
         void SignInButtonClicked();
+
+        void checkLoggedInUser();
+
+
     }
 }

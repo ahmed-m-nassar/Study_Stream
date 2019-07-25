@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/HomePage_CoursesStatistics_MenuItem"
+        android:title="Courses Statistics"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/HomePage_ChangePassword_MenuItem"
+        android:title="Change Password"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/HomePage_LogOut_MenuItem"
+        android:title="Logout"
+        app:showAsAction="never"/>
+</menu>
