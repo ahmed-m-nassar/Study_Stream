@@ -13,9 +13,11 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.android.studystream.CourseDetails.Announcements.Models.Announcement;
+import com.example.android.studystream.CourseDetails.Announcements.NewAnnouncement.NewAnnouncementFragment;
 import com.example.android.studystream.CourseDetails.Lessons.CourseLessons.Adapter.LessonListAdapter;
 import com.example.android.studystream.CourseDetails.Lessons.Models.Lesson;
 import com.example.android.studystream.CourseDetails.Lessons.NewLesson.NewLessonActivity;
+import com.example.android.studystream.CourseDetails.Lessons.NewLesson.NewLessonFragment;
 import com.example.android.studystream.Questions.LessonQuestions.LessonQuestionsActivity;
 import com.example.android.studystream.R;
 
@@ -92,10 +94,14 @@ public class CourseLessonsFragment extends Fragment implements CourseLessonsCont
 
     @Override
     public void navigateToNewLessonScreen() {
-        Intent intent = new Intent(getContext() , NewLessonActivity.class);
-        intent.putExtra("Email" , mEmail);
-        intent.putExtra("CourseCode" , mCourseCode);
-        startActivity(intent);
+        Bundle bundle = new Bundle();
+        bundle.putString("Email", mEmail);
+        bundle.putInt("CourseCode" , mCourseCode);
+
+        Fragment fragment = new NewLessonFragment();
+        fragment.setArguments(bundle);
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.CourseDetails_Container_FragmentLayout,
+                fragment).addToBackStack(null).commit();
     }
 
     @Override

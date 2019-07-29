@@ -16,7 +16,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.android.studystream.CourseDetails.Announcements.EditAnnouncement.EditAnnouncementActivity;
 import com.example.android.studystream.CourseDetails.Announcements.Models.Announcement;
 import com.example.android.studystream.Questions.Models.Question;
 import com.example.android.studystream.R;

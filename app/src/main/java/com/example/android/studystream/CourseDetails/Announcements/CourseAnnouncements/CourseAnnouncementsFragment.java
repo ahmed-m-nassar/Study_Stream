@@ -1,9 +1,11 @@
 package com.example.android.studystream.CourseDetails.Announcements.CourseAnnouncements;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,17 +15,21 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.android.studystream.CourseDetails.Announcements.CourseAnnouncements.Adapter.AnnouncementListAdapter;
+import com.example.android.studystream.CourseDetails.Announcements.CourseAnnouncements.Adapter.AnnouncementListClickListeners;
+import com.example.android.studystream.CourseDetails.Announcements.EditAnnouncement.EditAnnouncementFragment;
 import com.example.android.studystream.CourseDetails.Announcements.Models.Announcement;
 import com.example.android.studystream.CourseDetails.Announcements.NewAnnouncement.NewAnnouncementActivity;
+import com.example.android.studystream.CourseDetails.Announcements.NewAnnouncement.NewAnnouncementFragment;
 import com.example.android.studystream.R;
 
 import java.util.ArrayList;
 
-public class CourseAnnouncementsFragment extends Fragment implements CourseAnnouncementsContract.View {
+public class CourseAnnouncementsFragment extends Fragment implements CourseAnnouncementsContract.View,
+                                                                        AnnouncementListClickListeners  {
 
-    private CourseAnnouncementsPresenter presenter;
+    private CourseAnnouncementsPresenter mPresenter;
     private ListView                     mAnnouncementsList;
-    private Button                       mAddAnnouncemet;
+    private Button         mAddAnnouncement;
     private String                       mEmail;
     private boolean                      mUserType;
     private int                          mCourseCode;
@@ -43,7 +49,7 @@ public class CourseAnnouncementsFragment extends Fragment implements CourseAnnou
 
         //getting child views
         mAnnouncementsList = (ListView) view.findViewById(R.id.CourseAnnouncements_AnnouncementsList_ListView);
-        mAddAnnouncemet = (Button) view.findViewById(R.id.CourseAnnouncements_AddAnnouncement_Button);
+        mAddAnnouncement = (Button) view.findViewById(R.id.CourseAnnouncements_AddAnnouncement_Button);
 
         //getting bundle extras
         Bundle bundle = this.getArguments();
@@ -54,19 +60,15 @@ public class CourseAnnouncementsFragment extends Fragment implements CourseAnnou
         }
 
         //getting presenter
-        presenter = new CourseAnnouncementsPresenter(this);
+        mPresenter = new CourseAnnouncementsPresenter(this);
 
         ////////////////////////////////////////////////////////////////////
 
         //setting click listeners
-        mAddAnnouncemet.setOnClickListener(new View.OnClickListener() {
+        mAddAnnouncement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext() , NewAnnouncementActivity.class);
-                intent.putExtra("Email" , mEmail);
-                intent.putExtra("CourseCode" , mCourseCode);
-
-                startActivity(intent);
+                mPresenter.addAnnouncementButtonClicked();
             }
         });
 
@@ -74,7 +76,7 @@ public class CourseAnnouncementsFragment extends Fragment implements CourseAnnou
         adjustScreenToUser();
 
         //get Announcement list
-        presenter.getAnnouncementsList(mCourseCode);
+        mPresenter.getAnnouncementsList(mCourseCode);
 
 
     }
@@ -86,41 +88,60 @@ public class CourseAnnouncementsFragment extends Fragment implements CourseAnnou
 
     @Override
     public void fillAnnouncementsList(ArrayList<Announcement> announcements) {
-        AnnouncementListAdapter adapter = new AnnouncementListAdapter(getContext() , announcements ,mEmail , mUserType);
+        AnnouncementListAdapter adapter = new AnnouncementListAdapter(getContext() , announcements ,mEmail , mUserType ,this);
         mAnnouncementsList.setAdapter(adapter);
     }
 
     @Override
     public void navigateToNewAnnouncementScreen() {
-        Intent intent = new Intent();
-        intent.putExtra("Email" , mEmail);
-        intent.putExtra("UserType" , mUserType);
-        intent.putExtra("CourseCode" ,mCourseCode);
-        startActivity(intent);
+        Bundle bundle = new Bundle();
+        bundle.putString("Email", mEmail);
+        bundle.putInt("CourseCode" , mCourseCode);
+        bundle.putBoolean("UserType" , mUserType);
+
+        Fragment fragment = new NewAnnouncementFragment();
+        fragment.setArguments(bundle);
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.CourseDetails_Container_FragmentLayout,
+                fragment).addToBackStack(null).commit();
     }
 
-    @Override
-    public void navigateToAnnouncementDetailsScreen() {
-        Intent intent = new Intent();
-        intent.putExtra("Email" , mEmail);
-        intent.putExtra("UserType" , mUserType);
-        intent.putExtra("CourseCode" ,mCourseCode);
-        startActivity(intent);
-    }
 
     @Override
     public void onResume() {
         super.onResume();
-        presenter.getAnnouncementsList(mCourseCode);
+        mPresenter.getAnnouncementsList(mCourseCode);
     }
 
     //region private functions
+    @SuppressLint("RestrictedApi")
     private void adjustScreenToUser() {
 
         if(mUserType == false) {
-            mAddAnnouncemet.setVisibility(View.GONE);
+            mAddAnnouncement.setVisibility(View.GONE);
         }
     }
 
     //endregion
+
+    @Override
+    public View.OnClickListener announcementClicked(final int announcementNumber, final String announcementTitle, final String announcementContent) {
+
+        View.OnClickListener clickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("Email", mEmail);
+                bundle.putInt("CourseCode" , mCourseCode);
+                bundle.putInt("AnnouncementNumber" , announcementNumber);
+                bundle.putString("AnnouncementTitle" , announcementTitle);
+                bundle.putString("AnnouncementContent" , announcementContent);
+
+                Fragment fragment = new EditAnnouncementFragment();
+                fragment.setArguments(bundle);
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.CourseDetails_Container_FragmentLayout,
+                        fragment).addToBackStack(null).commit();
+            }
+        };
+        return clickListener;
+    }
 }

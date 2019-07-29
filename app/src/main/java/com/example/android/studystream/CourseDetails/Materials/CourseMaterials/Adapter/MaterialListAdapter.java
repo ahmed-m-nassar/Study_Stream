@@ -18,14 +18,18 @@ import com.example.android.studystream.R;
 import java.util.List;
 
 public class MaterialListAdapter extends ArrayAdapter<Material> {
-    private boolean mUserType;
-    private String  mUserEmail;
-    private Context mContext;
-    public MaterialListAdapter(@NonNull Context context, List<Material> materials , String email , boolean userType) {
+    private boolean                    mUserType;
+    private String                     mUserEmail;
+    private Context                    mContext;
+    private MaterialListClickListeners mCLickListeners;
+
+    public MaterialListAdapter(@NonNull Context context, List<Material> materials ,
+                               String email , boolean userType , MaterialListClickListeners clickListeners) {
         super(context, 0,materials);
         mUserType = userType;
         mUserEmail = email;
         mContext = context;
+        mCLickListeners = clickListeners;
     }
 
     @NonNull
@@ -47,20 +51,9 @@ public class MaterialListAdapter extends ArrayAdapter<Material> {
         //setting click listener
         if(mUserType == true) { //if the user is a doctor he can edit the material
             LinearLayout materialParent = (LinearLayout)ListItemView.findViewById(R.id.MaterialListItem_Parent_Layout);
-            materialParent.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    Intent intent = new Intent(mContext , EditMaterialActivity.class);
-                    intent.putExtra("CourseCode" , Item.getmCourseCode() );
-                    intent.putExtra("MaterialNumber" , Item.getmMaterialNum());
-                    intent.putExtra("MaterialTitle" , Item.getmTitle());
-                    intent.putExtra("MaterialContent" , Item.getmContent());
-                    intent.putExtra("Email" , mUserEmail);
-
-                    mContext.startActivity(intent);
-                }
-            });
+           materialParent.setOnClickListener(mCLickListeners.materialItemClicked(Item.getmMaterialNum(),
+                                                                                 Item.getmTitle(),
+                                                                                 Item.getmContent()));
 
         }
 

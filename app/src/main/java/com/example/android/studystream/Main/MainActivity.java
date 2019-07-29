@@ -8,8 +8,8 @@ import android.widget.Button;
 
 import com.example.android.studystream.CoursesHomePage.CoursesHomePageActivity;
 import com.example.android.studystream.R;
-import com.example.android.studystream.SignIn.SignInActivity;
-import com.example.android.studystream.SignUp.SignUpActivity;
+import com.example.android.studystream.SignIn.SignInFragment;
+import com.example.android.studystream.SignUp.SignUpFragment;
 
 public class MainActivity extends AppCompatActivity implements MainContract.View {
 
@@ -54,15 +54,14 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     @Override
     public void navigateToSignUpScreen() {
-        Intent intent = new Intent(this,SignUpActivity.class);
-        startActivity(intent);
+        getSupportFragmentManager().beginTransaction().replace(R.id.Main_Parent_Layout,
+                new SignUpFragment()).addToBackStack(null).commit();
     }
 
     @Override
     public void navigateToSignInScreen() {
-        Intent intent = new Intent(this,SignInActivity.class);
-        startActivity(intent);
-
+        getSupportFragmentManager().beginTransaction().replace(R.id.Main_Parent_Layout,
+                new SignInFragment()).addToBackStack(null).commit();
     }
 
     @Override

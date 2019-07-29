@@ -12,7 +12,6 @@ public interface CourseAnnouncementsContract {
 
         void navigateToNewAnnouncementScreen();
 
-        void navigateToAnnouncementDetailsScreen();
     }
     interface Presenter {
         void getAnnouncementsList(int courseCode);

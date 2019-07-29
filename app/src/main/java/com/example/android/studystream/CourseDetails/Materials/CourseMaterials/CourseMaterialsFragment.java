@@ -12,14 +12,19 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.android.studystream.CourseDetails.Announcements.EditAnnouncement.EditAnnouncementFragment;
+import com.example.android.studystream.CourseDetails.Announcements.NewAnnouncement.NewAnnouncementFragment;
 import com.example.android.studystream.CourseDetails.Materials.CourseMaterials.Adapter.MaterialListAdapter;
+import com.example.android.studystream.CourseDetails.Materials.CourseMaterials.Adapter.MaterialListClickListeners;
+import com.example.android.studystream.CourseDetails.Materials.EditMaterial.EditMaterialFragment;
 import com.example.android.studystream.CourseDetails.Materials.Models.Material;
 import com.example.android.studystream.CourseDetails.Materials.NewMaterial.NewMaterialActivity;
+import com.example.android.studystream.CourseDetails.Materials.NewMaterial.NewMaterialFragment;
 import com.example.android.studystream.R;
 
 import java.util.ArrayList;
 
-public class CourseMaterialsFragment extends Fragment implements CourseMaterialsContract.View {
+public class CourseMaterialsFragment extends Fragment implements CourseMaterialsContract.View , MaterialListClickListeners {
     private CourseMaterialsPresenter mPresenter;
     private ListView                 mMaterialsList;
     private Button                   mAddMaterial;
@@ -80,16 +85,20 @@ public class CourseMaterialsFragment extends Fragment implements CourseMaterials
 
     @Override
     public void fillAnnouncementsList(ArrayList<Material> materials) {
-        MaterialListAdapter adapter = new MaterialListAdapter(getContext() , materials , mEmail , mUserType);
+        MaterialListAdapter adapter = new MaterialListAdapter(getContext() , materials , mEmail , mUserType ,this);
         mMaterialsList.setAdapter(adapter);
     }
 
     @Override
     public void navigateToNewMaterialScreen() {
-        Intent intent = new Intent(getContext() , NewMaterialActivity.class);
-        intent.putExtra("Email" , mEmail);
-        intent.putExtra("CourseCode" , mCourseCode);
-        startActivity(intent);
+        Bundle bundle = new Bundle();
+        bundle.putString("Email", mEmail);
+        bundle.putInt("CourseCode" , mCourseCode);
+
+        Fragment fragment = new NewMaterialFragment();
+        fragment.setArguments(bundle);
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.CourseDetails_Container_FragmentLayout,
+                fragment).addToBackStack(null).commit();
     }
 
     @Override
@@ -113,4 +122,24 @@ public class CourseMaterialsFragment extends Fragment implements CourseMaterials
 
     //endregion
 
+    @Override
+    public View.OnClickListener materialItemClicked(final int materialNumber ,final String materialTitle,final String materialContent) {
+        View.OnClickListener clickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("Email", mEmail);
+                bundle.putInt("CourseCode" , mCourseCode);
+                bundle.putInt("MaterialNumber" , materialNumber);
+                bundle.putString("MaterialTitle" , materialTitle);
+                bundle.putString("MaterialContent" , materialContent);
+
+                Fragment fragment = new EditMaterialFragment();
+                fragment.setArguments(bundle);
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.CourseDetails_Container_FragmentLayout,
+                        fragment).addToBackStack(null).commit();
+            }
+        };
+        return clickListener;
+    }
 }

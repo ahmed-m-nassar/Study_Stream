@@ -1,0 +1,13 @@
+1- you shouldnt send cursor to presenter convert it to the model first
+
+2- use presenter for logical operation only 
+
+3- if u have buttons on list item make the view implement its click listeners
+
+4-use base class for activity
+
+5-use FRAGMENTSSS
+
+6-read about lifecycles
+
+7-user string files for messages
