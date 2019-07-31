@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.android.studystream">
-
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
     <application
         android:name=".Base.DataBase.MyApp"
         android:allowBackup="true"
@@ -20,7 +20,6 @@
         <activity android:name=".Answers.QuestionAnswers.QuestionAnswersActivity" />
         <activity android:name=".Questions.LessonQuestions.LessonQuestionsActivity" />
         <activity android:name=".CourseDetails.Materials.EditMaterial.EditMaterialActivity" />
-        <activity android:name=".CourseDetails.Announcements.EditAnnouncement.EditAnnouncementActivity" />
         <activity android:name=".CourseDetails.Lessons.NewLesson.NewLessonActivity" />
         <activity android:name=".CourseDetails.Materials.NewMaterial.NewMaterialActivity" />
         <activity android:name=".CourseDetails.Announcements.NewAnnouncement.NewAnnouncementActivity" />
@@ -31,8 +30,6 @@
             android:label="@string/title_activity_new_course"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".CoursesHomePage.CoursesHomePageActivity" />
-        <activity android:name=".SignUp.SignUpActivity" />
-        <activity android:name=".SignIn.SignInActivity" />
         <activity android:name=".Main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -5,8 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.android.studystream.CoursesHomePage.CoursesHomePageActivity;
+import com.example.android.studystream.Invite.InviteFragment;
 import com.example.android.studystream.R;
 import com.example.android.studystream.SignIn.SignInFragment;
 import com.example.android.studystream.SignUp.SignUpFragment;
@@ -16,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     private MainPresenter   mPresenter ;
     private Button          mSignInButton;
     private Button          mSignUpButton;
+    private TextView        mInvite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         ////////////////////////////////////////////////////////
         mSignInButton = (Button)findViewById(R.id.Main_SignIn_Button);
         mSignUpButton = (Button)findViewById(R.id.Main_SignUp_Button);
+        mInvite       =(TextView)findViewById(R.id.Main_Invite_TextView);
         mPresenter = new MainPresenter(this);
         ///////////////////////////////////////////////////////
 
@@ -35,7 +39,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         mSignInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPresenter.SignInButtonClicked();
+                getSupportFragmentManager().beginTransaction().replace(R.id.Main_Parent_Layout,
+                        new SignInFragment()).addToBackStack(null).commit();
             }
         });
 
@@ -43,7 +48,17 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         mSignUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPresenter.SignUpButtonClicked();
+                getSupportFragmentManager().beginTransaction().replace(R.id.Main_Parent_Layout,
+                        new SignUpFragment()).addToBackStack(null).commit();
+            }
+        });
+
+        //invite your friends click listener
+        mInvite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.Main_Parent_Layout,
+                        new InviteFragment()).addToBackStack(null).commit();
             }
         });
         /////////////////////////////////////////////////////////
@@ -52,17 +67,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         mPresenter.checkLoggedInUser();
     }
 
-    @Override
-    public void navigateToSignUpScreen() {
-        getSupportFragmentManager().beginTransaction().replace(R.id.Main_Parent_Layout,
-                new SignUpFragment()).addToBackStack(null).commit();
-    }
 
-    @Override
-    public void navigateToSignInScreen() {
-        getSupportFragmentManager().beginTransaction().replace(R.id.Main_Parent_Layout,
-                new SignInFragment()).addToBackStack(null).commit();
-    }
 
     @Override
     public void navigateToCoursesScreen(String email, boolean userType) {

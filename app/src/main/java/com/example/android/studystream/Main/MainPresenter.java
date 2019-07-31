@@ -12,15 +12,6 @@ public class MainPresenter implements MainContract.Presenter {
         mModel = new MainLocalServicesImpl();
     }
 
-    @Override
-    public void SignUpButtonClicked() {
-        mView.navigateToSignUpScreen();
-    }
-
-    @Override
-    public void SignInButtonClicked() {
-        mView.navigateToSignInScreen();
-    }
 
     @Override
     public void checkLoggedInUser() {

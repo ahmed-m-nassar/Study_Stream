@@ -56,6 +56,15 @@
                 android:layout_marginTop="0dp"
                 android:text="Log in" />
 
+            <TextView
+                android:id="@+id/Main_Invite_TextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Invite your friends!"
+                android:textColor="@color/colorPrimary"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"/>
+
         </LinearLayout>
 
     </ScrollView>
